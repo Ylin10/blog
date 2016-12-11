@@ -1,23 +1,26 @@
 <center><h1>Index Action for Articles</h1></center>
 <center><h3>Default for Articles</h3></center>
 
-<h1>Listing all complaints submitted</h1><br>
+<h1>Listing all complaints submitted</h1>
 
-<h3>File a complaint here:</h3>
-<a href = "http://localhost:3000/articles/new"> Submit New Complaint </a>
-
+<h2>Click <%= link_to 'here', new_article_path %> to file a new complaint.</h2>
 
 <table>
   <tr>
-    <h3><th>Nature of Complaint</th></h3>
-    <h3><th>Text</th></h3>
+    <h2><th>Nature of Complaint</th></h2>
+    <h2><th>Body</th></h2>
+    <h2><th>Physician</th></h2>
+    <h2><th>Office</th></h2>
   </tr>
 
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= article.doctorname %></td>
+      <td><%= article.location %></td>
       <td><%= link_to 'Show Full', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
     </tr>
   <% end %>
 </table>

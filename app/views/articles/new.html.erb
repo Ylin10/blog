@@ -1,8 +1,22 @@
-<center><h1>NEW ARTICLES</h1></center>
+<center><h1>Official Complaint Form</h1></center>
 
-<center><h3>Create your new articles below here</h3></center>
+<center><h3>File a complaint below:</h3></center>
 
 <%= form_for :article, url: articles_path do |f| %>
+
+<% if @article.errors.any? %>
+  <div id= "error_explanation">
+    <h2>
+      <%= pluralize(@article.errors.count, "problems") %> prohibited your complaint
+      from being submitted.
+    </h2>
+    <ul><strong>
+      <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul><strong>
+  </div>
+  <% end %>
 
 <p>
   <%= f.label :Nature_for_your_visit_today%><br>
@@ -27,5 +41,7 @@
 <p>
   <%= f.submit :CLICKHEREYO%>
 </p>
+
+<h3>If you've reached this page in error, you can always return by clicking <%= link_to 'HERE', articles_path%></h3>
 
 <% end %>
