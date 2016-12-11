@@ -11,6 +11,7 @@
     <h2><th>Body</th></h2>
     <h2><th>Physician</th></h2>
     <h2><th>Office</th></h2>
+    <h2><th>Patient Age</th></h2>
   </tr>
 
   <% @articles.each do |article| %>
@@ -19,6 +20,7 @@
       <td><%= article.text %></td>
       <td><%= article.doctorname %></td>
       <td><%= article.location %></td>
+      <td><%= article.patientage %></td>
       <td><%= link_to 'Show Full', article_path(article) %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
     </tr>

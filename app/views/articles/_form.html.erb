@@ -1,0 +1,48 @@
+<% = form_for @article do |f| %>
+
+<% if @article.errors.any? %>
+  <div id = "error_explanation">
+    <h2>
+      <%= pluralize(errors.count, "problems") %> prohibited your complaint
+      from being submitted.
+    </h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<p>
+  <% = f.label :title %> <br>
+  <% = f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :Why_are_you_so_upset_today %><br>
+  <%= f.text_area :text %>
+</p>
+
+<p>
+  <%= f.label :Name_of_physician %><br>
+  <%= f.text_field :doctorname %>
+</p>
+
+<p>
+  <%= f.label :Name_of_office%><br>
+  <%= f.text_field :location %>
+</p>
+
+<p>
+  <%= f.label :Patient_Age %><br>
+  <%= f.text_field :patientage %>
+</p>
+
+<p>
+<%= f.submit :CLICKHEREYO %>
+</p>
+
+<h3> If you've reached this page in error, you can always return <%= link_to 'HERE', articles_path%></h3>
+
+<% end %>

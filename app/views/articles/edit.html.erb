@@ -1,5 +1,7 @@
 <h2>Edit Your Complaint Here</h2>
 
+<p>fucking debug your article_path properly</p>
+
 <%= form_for :article, url: article_path(@article), method: :patch do |f| %>
 
 <% if @article.errors.any? %>
@@ -34,6 +36,11 @@
 <p>
   <%= f.label :Name_of_office%>
   <%= f.text_field :location%>
+</p>
+
+<p>
+  <%= f.label :Patient_Age%>
+  <%= f.text_field :patientage%>
 </p>
 
 <p>
