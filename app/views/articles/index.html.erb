@@ -1,4 +1,23 @@
 <center><h1>Index Action for Articles</h1></center>
 <center><h3>Default for Articles</h3></center>
 
-<center><img src = "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201609301718"></center>
+<h1>Listing all complaints submitted</h1><br>
+
+<h3>File a complaint here:</h3>
+<a href = "http://localhost:3000/articles/new"> Submit New Complaint </a>
+
+
+<table>
+  <tr>
+    <h3><th>Nature of Complaint</th></h3>
+    <h3><th>Text</th></h3>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show Full', article_path(article) %></td>
+    </tr>
+  <% end %>
+</table>
