@@ -33,4 +33,37 @@
   <%= @article.created_at%>
 </p>
 
+<p>
+  <h2>Comments</h2>
+
+<% @article.comments.each do | comment | %>
+ <p>
+   <strong>Commenter: </strong>
+   <%= comment.commenter%>
+</p>
+
+<p>
+  <strong>Comment: </strong>
+
+  <%= comment.comment %>
+</p>
+<% end %>
+
+<h2>Add a comment</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+<p>
+  <%=f.label :commenter %><br>
+  <%=f.text_field :commenter %>
+</p>
+
+<p>
+  <%=f.label :comment %><br>
+  <%=f.text_area :comment%>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+
 <h2>Click <%= link_to 'HERE', articles_path%> to return to the main page.</h2></center>
